@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mdeditor',
 
     # myapp
     'blog.apps.BlogConfig'
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'django_introduction.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,  'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -122,6 +123,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# 设定媒体文件上传的目录
-MEDIA_URL = '/media/'  # 媒体文件的URL前缀
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 存储上传文件的目录
+
+# 配置媒体文件的 URL 和根目录
+# BASE_DIR 是项目的根目录路径，通常定义为：
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+MEDIA_URL = '/media/'  # 用于访问媒体文件的URL路径
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 存储上传文件的根目录
+

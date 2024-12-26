@@ -1,0 +1,46 @@
+/* 文章卡片样式 */
+.article-card {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;  /* 文章之间的分隔线 */
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* 文章图片的样式 */
+.article-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;  /* 保持图片的纵横比并填充整个区域 */
+    border-radius: 8px;
+}
+
+/* 右侧标题和简要内容样式 */
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* 文章右侧内容部分的内边距 */
+.pl-4 {
+    padding-left: 20px;
+}
+
+/* 图片最大宽度 */
+.article-image {
+    max-width: 150px;
+    border-radius: 8px;
+}
+
+/* 确保每行的间距 */
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+

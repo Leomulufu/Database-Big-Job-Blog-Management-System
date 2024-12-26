@@ -15,9 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls'))
+    path('blog/', include('blog.urls')),
+    path('media/', include('blog.urls')),
+    path(r'mdeditor/', include('mdeditor.urls')),
+    #path('search/', include('blog.urls')),
     #如果路由中有blog，转发到blog.urls中继续匹配
 ]
+# 开发服务器模式下配置上传文件web请求
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
